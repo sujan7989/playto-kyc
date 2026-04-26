@@ -192,8 +192,15 @@ class KYCSubmissionUpdateSerializer(serializers.ModelSerializer):
 
 
 class StateTransitionSerializer(serializers.Serializer):
-    """Used by reviewers to change submission state."""
-    new_state = serializers.ChoiceField(choices=KYCSubmission.STATE_CHOICES)
+    """Used by reviewers to change submission state. draft is excluded — reviewers cannot set draft."""
+    REVIEWER_ALLOWED_STATES = [
+        (KYCSubmission.STATE_SUBMITTED, 'Submitted'),
+        (KYCSubmission.STATE_UNDER_REVIEW, 'Under Review'),
+        (KYCSubmission.STATE_APPROVED, 'Approved'),
+        (KYCSubmission.STATE_REJECTED, 'Rejected'),
+        (KYCSubmission.STATE_MORE_INFO, 'More Info Requested'),
+    ]
+    new_state = serializers.ChoiceField(choices=REVIEWER_ALLOWED_STATES)
     note = serializers.CharField(required=False, allow_blank=True, default='')
 
 

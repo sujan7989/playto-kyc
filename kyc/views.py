@@ -123,7 +123,7 @@ class MerchantSubmissionListCreateView(APIView):
 
 
 class MerchantSubmissionDetailView(APIView):
-    permission_classes = [IsAuthenticated, IsOwnerMerchant]
+    permission_classes = [IsAuthenticated, IsMerchant]
 
     def _get_submission(self, pk, user):
         try:

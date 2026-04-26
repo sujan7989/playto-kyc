@@ -125,6 +125,8 @@ class KYCSubmission(models.Model):
         now = timezone.now()
         self.state = new_state
 
+        # Update submitted_at every time it enters submitted state
+        # (covers both first submit and re-submit after more_info_requested)
         if new_state == self.STATE_SUBMITTED:
             self.submitted_at = now
 

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: playto-kyc-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python manage.py migrate && python manage.py seed
+    startCommand: gunicorn playto_kyc.wsgi:application --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com,localhost"
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://frontend-blue-mu-vrylkxo7sn.vercel.app,https://frontend-iwe0llrl4-sujankumarreddy824-5492s-projects.vercel.app,http://localhost:3000"
+      - key: PYTHON_VERSION
+        value: "3.11.9"

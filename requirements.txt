@@ -5,4 +5,4 @@ Pillow==12.2.0
 python-dotenv==1.2.2
 asgiref==3.11.1
 sqlparse==0.5.5
-gunicorn==21.2.0
+gunicorn==25.3.0

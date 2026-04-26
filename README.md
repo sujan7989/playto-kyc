@@ -2,6 +2,14 @@
 
 Cross-border payment KYC onboarding system for Playto Pay. Merchants submit KYC, reviewers approve/reject through a state-machine-enforced pipeline.
 
+## Live Deployment
+
+- **Frontend (Vercel):** https://frontend-blue-mu-vrylkxo7sn.vercel.app
+- **Backend API (Render):** https://playto-kyc-backend-4a95.onrender.com/api/v1/
+- **GitHub:** https://github.com/sujan7989/playto-kyc
+
+> Note: Render free tier sleeps after inactivity. First request may take ~30s to wake up.
+
 ## Stack
 - **Backend**: Django 5 + Django REST Framework + SQLite
 - **Frontend**: React + Vite + Tailwind CSS

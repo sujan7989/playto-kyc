@@ -29,9 +29,9 @@ frontend/node_modules/
 frontend/dist/
 frontend/.env.local
 
-# IDE
-.vscode/
-.idea/
+# Render CLI (downloaded binary - not needed in repo)
+render-cli.zip
+render-cli-bin/
 *.swp
 *.swo
 .DS_Store
